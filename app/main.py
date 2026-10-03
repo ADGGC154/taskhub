@@ -1,10 +1,14 @@
 from fastapi import FastAPI
 import uvicorn
 
+from app.api.v1.auth import router as auth_router
 from app.core.config import settings
 from app.db.session import engine
+import app.models  # noqa: F401  确保模型被加载
 
 app = FastAPI(title=settings.app_name)
+
+app.include_router(auth_router, prefix="/api/v1")
 
 
 @app.get("/health")

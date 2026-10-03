@@ -187,3 +187,5 @@ __pycache__/
 .idea/
 venv/
 *.db
+check_users.py
+check_db.py
